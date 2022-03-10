@@ -8,12 +8,19 @@ color seagreen = #79BD9A;
 color seablue = #3B8686;
 color seadark = #0B486B;
 
-color red = #FF0303;
-color pink = #FA6DE0;
-color green = #04CE1A;
-color blue = #04BFCE;
-color yellow = #F9FF50;
-color orange = #FFA908;
+color red = #e81123; //
+color pink = #ec008c; //
+color green = #009e49; //
+color blue = #00188f; //
+color yellow = #fff100; //
+color orange = #ff8c00; //
+color white = #FFFFFF;
+color black = #000000;
+color purple = #68217a; 
+color cyan = #00bcf2; 
+color teal = #00b294; 
+color lime = #bad80a;
+
 
 //Variables
 int strokeZ;
@@ -49,37 +56,41 @@ void draw(){
   strokeWeight(1);
   rect(0, 0, 1000, 125);
   
-//Buttons
+//Buttons ================================================
   tactile(25, 50, 25, 50, red);
-  fill(red);
-  square(25, 25, 25); //1-1
+  button(25, 25, 25, red);
   
-  stroke(0);
   tactile(25, 50, 75, 100, pink);
-  fill(pink);
-  square(25, 75, 25); //1-2
-  
-  stroke(0);
+  button(25, 75, 25, pink);
+
   tactile(125, 150, 25, 50, yellow);
-  fill(yellow);
-  square(125, 25, 25); //1-3
+  button(125, 25, 25, yellow);
   
-  stroke(0);
   tactile(75, 100, 25, 50, green);
-  fill(green);
-  square(75, 25, 25); //2-1
+  button(75, 25, 25, green);
   
-  stroke(0);
   tactile(75, 100, 75, 100, blue);
-  fill(blue);
-  square(75, 75, 25); //2-2
+  button(75, 75, 25, blue);
   
-  stroke(0);
   tactile(125, 150, 75, 100, orange);
-  fill(orange);
-  square(125, 75, 25); //2-3
+  button(125, 75, 25, orange);
   
-//StrokeWeight Slider
+  tactile(250, 275, 25, 50, teal);
+  button(250, 25, 25, teal);
+  
+  tactile(300, 325, 25, 50, cyan);
+  button(300, 25, 25, cyan);
+ 
+  tactile(250, 275, 75, 100, lime);
+  button(250, 75, 25, lime);
+  
+  tactile(300, 325, 75, 100, purple);
+  button(300, 75, 25, purple);
+ 
+  
+
+  
+//StrokeWeight Slider ======================================
 
   stroke(0);
   fill(ind);
@@ -94,7 +105,7 @@ void draw(){
 }
 
   void mousePressed(){
-    if (mouseX > 25 && mouseX < 50 && mouseY > 25 && mouseY < 50){ //Colour Selection Squares
+    if (mouseX > 25 && mouseX < 50 && mouseY > 25 && mouseY < 50){ //Colour Selection Squares ===================================
       strokeZ = red;
     }
     if (mouseX > 25 && mouseX < 50 && mouseY > 75 && mouseY < 100){
@@ -115,14 +126,20 @@ void draw(){
   }
   
   
-  void tactile(int x, int x2, int y, int y2, int colour) {
+  void tactile(int x, int x2, int y, int y2, int colour) {//Tactile Button function ==============================================================
       if (mouseX > x && mouseX < x2 && mouseY > y && mouseY < y2) {
     stroke(colour);
-    ind = colour;
   } else {
+ 
     colour = 0;
     ind = strokeZ;
   }
+  }
+  
+  void button(int x, int y, int s, int colour) { //Button function =================================================
+    fill(colour);
+    square(x, y, s);
+    stroke(0);
   }
     
  
@@ -132,7 +149,7 @@ void draw(){
   
   
   
-  void mouseDragged(){
+  void mouseDragged(){ //Draw Shit ==================================================================
      if (mouseX > 1 && mouseX < 1000 && mouseY > 150 && mouseY < 800) {
     stroke(strokeZ);
     strokeWeight(strokeX);
@@ -140,7 +157,7 @@ void draw(){
   } 
   
   
-   if (mouseX > 180 && mouseX < 220 && mouseY > 25 && mouseY < 100) { //StrokeWeight Slider
+   if (mouseX > 180 && mouseX < 220 && mouseY > 25 && mouseY < 100) { //StrokeWeight Slider ============================================
       sliderY = mouseY;
     }
 }
