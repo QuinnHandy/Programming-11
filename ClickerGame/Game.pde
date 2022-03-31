@@ -30,7 +30,11 @@ void game() {
 void gameClicks() {
 if ( dist(mouseX, mouseY, x, y) < d/2) {
   score = score + 1;
+  coin.rewind();
+  coin.play();
   } else {
+    bump.rewind();
+    bump.play();
     lives = lives - 1;
     if (lives == 0) mode = GAMEOVER;
   }

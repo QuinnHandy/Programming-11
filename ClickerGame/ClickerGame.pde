@@ -1,3 +1,12 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+
+
 //Quinn Handy
 //March 29th 2022
 
@@ -14,6 +23,9 @@ float x, y, d;
 float vx, vy; //target speed
 int score, lives;
 
+//sound Variavles
+Minim minim;
+AudioPlayer theme, coin, bump, gameover; 
 
 
 
@@ -30,9 +42,13 @@ void setup() {
   score = 0;
   lives = 3;
   d = 100;
-  vx = random(-50, 50);
-  vy = random(-50, 50);
   
+  //minim
+  minim = new Minim(this);
+  theme = minim.loadFile("mario bros theme.mp3");
+  coin = minim.loadFile("coin.wav");
+  bump = minim.loadFile("bump.wav");
+  gameover = minim.loadFile("gameover.wav");
   
 }
   
