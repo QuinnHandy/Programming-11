@@ -28,14 +28,21 @@ void game() {
 }
 
 void gameClicks() {
+    sound = random(1, 2);
 if ( dist(mouseX, mouseY, x, y) < d/2) {
   score = score + 1;
   coin.rewind();
   coin.play();
-  } else {
-    bump.rewind();
-    bump.play();
-    lives = lives - 1;
-    if (lives == 0) mode = GAMEOVER;
+} else {   lives = lives - 1;
+}
+  } else if (sound < 1.5){
+    hehehe.rewind();
+    hehehe.play();
+    } else if (sound > 1.51) {
+    cry.rewind();
+    cry.play();
+    } else {
+      println("sound =" + sound);
+        if (lives == 0) mode = GAMEOVER;
   }
 }

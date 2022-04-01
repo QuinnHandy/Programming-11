@@ -12,6 +12,7 @@ void intro()  {
   
   fill(0);
   textSize(100);
+  textFont(font);
   text("Clicker Royale", 400, 200);
 }
 

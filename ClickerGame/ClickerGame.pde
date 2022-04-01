@@ -6,6 +6,7 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
 
+PFont font;
 
 //Quinn Handy
 //March 29th 2022
@@ -23,10 +24,10 @@ float x, y, d;
 float vx, vy; //target speed
 int score, lives;
 
-//sound Variavles
+//sound Variables
 Minim minim;
-AudioPlayer theme, coin, bump, gameover; 
-
+AudioPlayer theme, coin, bump, gameover, hehehe, cry; 
+float sound;
 
 
 
@@ -35,6 +36,10 @@ void setup() {
   mode = INTRO;
   textAlign(CENTER, CENTER);
   rectMode(CENTER);  
+  
+//FONTS
+font = createFont("CR.ttf", 56);
+
   
   //target setup
   x = width/2;
@@ -49,6 +54,10 @@ void setup() {
   coin = minim.loadFile("coin.wav");
   bump = minim.loadFile("bump.wav");
   gameover = minim.loadFile("gameover.wav");
+  hehehe = minim.loadFile("hehehe.mp3");
+  cry = minim.loadFile("cry.mp3");
+  
+
   
 }
   
