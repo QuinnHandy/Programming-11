@@ -1,5 +1,5 @@
-void mouseReleased() {
-   if (mode == INTRO) {
+void mousePressed() {
+  if (mode == INTRO) {
     introClicks();
   } else if (mode == GAME) {
     gameClicks();
@@ -8,7 +8,10 @@ void mouseReleased() {
   } else if (mode == GAMEOVER) {
     gameoverClicks();
   }
-  
-  
-  
+}
+
+void mouseDragged() {
+  if (mode == PAUSE) {
+    pauseDragged();
+  }
 }
