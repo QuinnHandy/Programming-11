@@ -13,8 +13,8 @@ void game() {
   
   //draw paddles
   fill(255);
-  circle(leftx, lefty, leftd);
-  circle(rightx, righty, rightd);
+  circle(-10, lefty, leftd);
+  circle(width + 10, righty, rightd);
 
   //move paddles
   if (wkey == true) lefty = lefty - 5;
@@ -33,6 +33,7 @@ void game() {
   }
   
   println(vx, vy);
+  println(ballx, rightx, leftx);
   
   //scoring
   if (ballx < 0) {

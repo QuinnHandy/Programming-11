@@ -37,11 +37,11 @@ void setup() {
   mode = INTRO;
   
   //paddleee
-  leftx = 0;
+  leftx = -20;
   lefty = height/2;
   leftd = 200;
   
-  rightx = width;
+  rightx = width + 20;
   righty = height/2;
   rightd = 200;
   
