@@ -16,6 +16,7 @@ color seadark = #0B486B;
 int rightx, righty, rightd;
 int leftx, lefty, leftd;
 int ballx, bally, balld;
+int tempColor = 0;
 
 // movement variables
 int vx, vy;
@@ -63,7 +64,7 @@ void setup() {
   ballr = balld/2;
   
   //timer
-  timer = 100;
+  timer = 240;
 }
 
 void draw() {
