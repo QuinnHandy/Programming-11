@@ -1,7 +1,39 @@
 void game() {
-  background(255, 0, 0);
+  fill(blue, 150);
+  rect(width/2, height/2, width, height);
+  noStroke();
+
+  addObjects();
+  gameEngine();
+  debug();
 }
 
-void gameClicks() {
-  mode = GAMEOVER;
+void addObjects() {
+  
+  if (frameCount % 5 == 0) {
+  objects.add(new Enemy());
+  }
+}
+void gameEngine() {
+  int i = 0;
+  while (i < objects.size()) {
+    GameObject obj = objects.get(i);
+    obj.act();
+    obj.show();
+    if (obj.lives <= 0) {
+      objects.remove(i);
+    } else {
+      i = i + 1;
+    }
+  }
+  player1.act();
+  player1.show();
+}
+
+void debug() {
+  text(frameRate, 10, 10);
+  text(objects.size(), 10, 30);
+}
+
+void gameclicks() {
 }
