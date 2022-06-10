@@ -1,11 +1,11 @@
-class Enemy extends GameObject {
+class Gunner extends GameObject {
 
   int cooldown, threshold, f;
 
-  Enemy() {
-    super(random(width), 0, 0, 3, 40, aqua, 1);
+  Gunner() {
+    super(random(width), 0, 0, 3, 40, yellow, 1);
 
-    threshold = 60;
+    threshold = 120;
     cooldown = threshold;
   }
 
@@ -18,8 +18,8 @@ class Enemy extends GameObject {
 
     cooldown++;
     if (cooldown >= threshold) {
-      objects.add(new EnemyBullet(x, y, 0, 7)); 
-
+      objects.add(new EnemyBullet(x - 10, y, 0, 5)); 
+      objects.add(new EnemyBullet(x + 10, y, 0, 5)); 
       cooldown = 0;
     }
 
@@ -32,14 +32,7 @@ class Enemy extends GameObject {
         if (collidingWith(obj)) {
           lives--;
           obj.lives--;
-          score++;  
-
-          while (f < 20) {
-            
-            objects.add(new Particle(x, y, random(-5, 5), random(-5, 5)));
-
-            f++;
-          }
+          score++;
         }
       }
       i++;

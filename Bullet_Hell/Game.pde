@@ -8,11 +8,19 @@ void game() {
   debug();
 }
 
+
+
+
+
 void addObjects() {
   
   if (frameCount % 30 == 0) {
   objects.add(new Enemy());
   }
+  if (frameCount % 60 == 0 && score > 50) {
+    objects.add(new Gunner());
+  }
+  
 }
 void gameEngine() {
   int i = 0;

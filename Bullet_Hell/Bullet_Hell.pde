@@ -1,6 +1,9 @@
 //Quinn Handy
-//June 9th 2022
-//Working on particle at bottom of Enemy Tab
+//June 10th 2022
+//Tint for particles
+//More enemies
+//Shootable
+//Powerups
 
 
 
@@ -21,6 +24,7 @@ color skyish   = #BBDBDC;
 color water    = #BAD5EE;
 color blue     = #3D7B80;
 color red      = #FF0000;
+color yellow   = #FAFF00;
 
 //score 
 int score = 0;
