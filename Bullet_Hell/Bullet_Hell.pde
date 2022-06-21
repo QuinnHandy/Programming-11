@@ -1,9 +1,8 @@
 //Quinn Handy
 //June 10th 2022
-//Tint for particles
-//More enemies
-//Shootable
-//Powerups
+
+//GameOver screen, Intro screen, Pause Screen
+//Center GameOver Screen Text
 
 
 
@@ -25,12 +24,15 @@ color water    = #BAD5EE;
 color blue     = #3D7B80;
 color red      = #FF0000;
 color yellow   = #FAFF00;
+color green    = #00FF0A;
+color pink     = #FE00FF;
+color white    = #FFFFFF;
 
 //score 
 int score = 0;
 
 //keyboard
-boolean upkey, downkey, leftkey, rightkey, spacekey;
+boolean upkey, downkey, leftkey, rightkey, spacekey, pkey;
 
 
 ArrayList<GameObject> objects;
@@ -58,7 +60,7 @@ void setup() {
 }
 
 void draw() {
-  if (mode == INTRO)          intro();
+       if (mode == INTRO)     intro();
   else if (mode == GAME)      game();
   else if (mode == PAUSE)     pause();
   else if (mode == GAMEOVER)  gameover();
