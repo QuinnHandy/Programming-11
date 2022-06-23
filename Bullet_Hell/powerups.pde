@@ -10,8 +10,8 @@ class Powerup extends GameObject {
 
     size = size - 0.1;
   }
-  
-    void show() {
-      super.show();
-    }
+
+  void show() {
+    super.show();
   }
+}

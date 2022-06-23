@@ -1,8 +1,7 @@
 //Quinn Handy
 //June 10th 2022
 
-//GameOver screen, Intro screen, Pause Screen
-//Center GameOver Screen Text
+//Ship Selection, Settings Screen, Sounds, Heads Up Display
 
 
 
@@ -34,6 +33,11 @@ int score = 0;
 //keyboard
 boolean upkey, downkey, leftkey, rightkey, spacekey, pkey;
 
+//ships
+int type = 69;
+float speedMultiplier, bulletMultiplier;
+boolean typer;
+
 
 ArrayList<GameObject> objects;
 
@@ -47,6 +51,7 @@ void setup() {
   fullScreen();
   mode = INTRO;
   rectMode(CENTER);
+  textMode(CENTER);
 
   player1 = new Starfighter();
 

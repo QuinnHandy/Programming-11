@@ -32,7 +32,7 @@ class Sniper extends GameObject {
           lives--;
           obj.lives--;
           score++;
-          
+
           //Particles
           while (f < 20) {
             objects.add(new Particle(x, y, random(-5, 5), random(-5, 5), green));

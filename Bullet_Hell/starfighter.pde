@@ -4,8 +4,8 @@ class Starfighter extends GameObject {
 
 
   Starfighter() {
-    super(width/2, height/2, 0, 0, 40, greenish, 100);
-    threshold = 3;
+    super(width/2, height/2, 0, 0, 40, greenish, 3);
+    threshold = 20;
     cooldown = threshold;
   }
 
@@ -13,33 +13,49 @@ class Starfighter extends GameObject {
   void act() {
     super.act();
 
+    //ships
+    typer = false;
+
+    if (typer == true) {
+      lives = 10;
+      speedMultiplier = 1;
+      threshold = 20;
+      bulletMultiplier = 1;
+      
+    } else if (typer == false) {
+      lives = 5;
+      speedMultiplier = 1.5;
+      threshold = 15;
+      bulletMultiplier = 1.2;
+    }
+
     //managing guns
     cooldown++;
     if (spacekey && cooldown >= threshold) {
 
       //different guns
       if (score <= 10) {
-        objects.add(new Bullet(x, y, 0, -10));
-      } else if (score < 10) {
+        objects.add(new Bullet(x, y, 0, -10 * bulletMultiplier));
+      } else if (score > 10 && score < 26) {
 
-        objects.add(new Bullet(x - 10, y, 0, -10));
-        objects.add(new Bullet(x + 10, y, 0, -10));
-      } else if (score < 25 || score > 24) {
+        objects.add(new Bullet(x - 10, y, 0, -10 * bulletMultiplier));
+        objects.add(new Bullet(x + 10, y, 0, -10 * bulletMultiplier));
+      } else if (score > 25) {
 
-        objects.add(new Bullet(x, y, 0, -10));
-        objects.add(new Bullet(x - 10, y, -5, -10));
-        objects.add(new Bullet(x + 10, y, 5, -10));
+        objects.add(new Bullet(x, y, 0, -10 * bulletMultiplier));
+        objects.add(new Bullet(x - 10, y, -5 * bulletMultiplier, -10 * bulletMultiplier));
+        objects.add(new Bullet(x + 10, y, 5 * bulletMultiplier, -10 * bulletMultiplier));
       }
 
       cooldown = 0;
     }
 
     //movement
-    if (upkey)    vy = -7;
-    if (downkey)  vy =  7;
+    if (upkey)    vy = -5 * speedMultiplier;
+    if (downkey)  vy =  5 * speedMultiplier;
 
-    if (leftkey)  vx = -7;
-    if (rightkey) vx =  7;
+    if (leftkey)  vx = -5 * speedMultiplier;
+    if (rightkey) vx =  5 * speedMultiplier;
 
 
 
@@ -71,11 +87,6 @@ class Starfighter extends GameObject {
 
             f++;
           }
-
-          //check lives
-          //if (lives == 0) {
-          //  mode = GAMEOVER;
-          //}
         }
       }
       if (obj instanceof Powerup) {
@@ -99,3 +110,11 @@ class Starfighter extends GameObject {
     }
   }
 }
+
+//void type1() {
+//  if (typer) {
+//    type = 3;
+//  } else {
+//    type = 5;
+//  }
+//}

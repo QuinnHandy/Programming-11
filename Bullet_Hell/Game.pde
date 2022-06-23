@@ -8,6 +8,8 @@ void game() {
   addObjects();
   gameEngine();
   debug();
+  
+  
 }
 
 
@@ -29,6 +31,7 @@ void addObjects() {
     objects.add(new Tank());
   }
 }
+
 void gameEngine() {
   int i = 0;
   while (i < objects.size()) {
@@ -52,6 +55,7 @@ void debug() {
   text(frameRate, 10, 10);
   text(objects.size(), 10, 30);
   text(score, 10, 50);
+  text(player1.lives, 10, 70);
 }
 
 void gameclicks() {

@@ -1,6 +1,10 @@
 void intro() {
   background(seafoam);
-  text("welcome to my game, this font is very small :)", width/2, height/2);
+  textSize(100);
+  text("Bullet HELL!", width/2 - 285, height/2);
+  textSize(50);
+  text("Click to play", width/2 - 155, height/2 + 200);
+ 
 }
 
 void introclicks() {

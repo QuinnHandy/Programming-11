@@ -19,13 +19,13 @@ class Enemy extends GameObject {
     cooldown++;
     if (cooldown >= threshold) {
       objects.add(new EnemyBullet(x, y, 0, 7)); 
-  
+
 
       cooldown = 0;
     }
- 
- 
-  
+
+
+
 
 
     //collisions
@@ -39,10 +39,10 @@ class Enemy extends GameObject {
           obj.lives--;
           score++;  
           if (r <= 20) {
-                 objects.add(new Powerup(x, y));
+            objects.add(new Powerup(x, y));
           }
-          
-         //Particles
+
+          //Particles
           while (f < 20) {
             objects.add(new Particle(x, y, random(-5, 5), random(-5, 5), aqua));
 
